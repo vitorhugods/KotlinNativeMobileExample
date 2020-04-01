@@ -43,7 +43,7 @@ jobs:
 
       - name: Upload current build
         run: |
-          cp .github/workflows/resources/shared.podspec frameworks-repo/
+          cp .github/workflows/resources/SharedKotlinNative.podspec frameworks-repo/
           cp -R example/build/bin/KotlinNativeExample.xcframework frameworks-repo/
           cd frameworks-repo
           git add .
