@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: Fat-Framework
-          path: example/build/bin/FatFramework.xcframework
+          path: example/build/bin/KotlinNativeExample.xcframework
 
       - name: Checkout Frameworks Repo
         uses: actions/checkout@v2
