@@ -1,0 +1,37 @@
+name: Build iOS XCFramework
+
+on:
+  push:
+    tags:
+      - t/**
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Checkout Frameworks Repo
+        uses: actions/checkout@v2
+        with:
+          repository: vitorhugods/KotlinNativeMobileFrameworks
+          path: frameworks-repo
+
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
+      - name: Explore workspace
+        run: |
+          ls -la
+          cd frameworks-repo
+          ls -la
+
+      - name: Attempt to change destination
+        run: |
+          touch file.txt
+          git add .
+          git commit -m "This is a test, ${{ steps.get_version.outputs.VERSION }}"
+          git push
