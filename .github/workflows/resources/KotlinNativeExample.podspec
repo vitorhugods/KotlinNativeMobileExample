@@ -24,10 +24,7 @@ Pod::Spec.new do |spec|
 
   spec.author       = { "Vitor Hugo Schwaab" => "vitor@schwaab.xyz" }
 
-  spec.static_framework         = true
-  spec.vendored_frameworks      = "#{spec.name}.framework"
-  spec.libraries                = "c++"
-  spec.module_name              = "#{spec.name}_umbrella"
+  spec.vendored_frameworks      = "#{spec.name}.xcframework"
 
   spec.source       = { :git => "https://github.com/vitorhugods/KotlinNativeMobileExample", :tag => "#{spec.version}" }
 
