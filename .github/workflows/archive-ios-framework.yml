@@ -44,5 +44,5 @@ jobs:
           cp example/build/bin/KotlinNativeExample.xcframework frameworks-repo/
           cd frameworks-repo
           git add .
-          git commit -m "Built from REF, ${{ GITHUB_SHA }}"
+          git commit -m "Built from REF, ${{ $GITHUB_SHA }}"
           git push
