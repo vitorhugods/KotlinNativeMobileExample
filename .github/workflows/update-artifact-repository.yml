@@ -7,7 +7,7 @@ on:
     branches: [ master, develop ]
 
 jobs:
-  build:
+  deploy:
     runs-on: macos-latest
 
     steps:
@@ -25,14 +25,9 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
-      - name: Explore workspace
-        run: |
-          ls -la
-          cd frameworks-repo
-          ls -la
-
       - name: Attempt to change destination
         run: |
+          cd frameworks-repo
           touch file.txt
           git add .
           git commit -m "This is a test, ${{ steps.get_version.outputs.VERSION }}"
