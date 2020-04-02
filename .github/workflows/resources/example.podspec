@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
    #TODO Generate/Edit this file when trigger source code tag
-  spec.name         = "KotlinNativeExample"
+  spec.name         = "example"
   spec.version      = "1.0.0"
   spec.summary      = "Shared artifacts from Kotlin/Native"
   spec.description  = "Something"
