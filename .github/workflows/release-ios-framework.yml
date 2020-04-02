@@ -26,13 +26,13 @@ jobs:
 
       - name: Make it Fat
         run: |
-          xcodebuild -create-xcframework -framework example/build/bin/iosArm64/debugFramework/example.framework -framework example/build/bin/iosX64/debugFramework/example.framework -output example/build/bin/KotlinNativeExample.xcframework
+          xcodebuild -create-xcframework -framework example/build/bin/iosArm64/debugFramework/example.framework -framework example/build/bin/iosX64/debugFramework/example.framework -output example/build/bin/example.xcframework
 
       - name: Upload Fat XCFramework to Artifacts
         uses: actions/upload-artifact@v1
         with:
           name: Fat-Framework
-          path: example/build/bin/KotlinNativeExample.xcframework
+          path: example/build/bin/example.xcframework
 
       - name: Checkout Frameworks Repo
         uses: actions/checkout@v2
@@ -43,8 +43,8 @@ jobs:
 
       - name: Upload current build
         run: |
-          cp .github/workflows/resources/KotlinNativeExample.podspec frameworks-repo/
-          cp -R example/build/bin/KotlinNativeExample.xcframework frameworks-repo/
+          cp .github/workflows/resources/example.podspec frameworks-repo/
+          cp -R example/build/bin/example.xcframework frameworks-repo/
           cd frameworks-repo
           git add .
           git commit -m "Built from TAG: ${{ steps.get_version.outputs.VERSION }}"
